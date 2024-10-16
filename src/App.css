@@ -1,0 +1,226 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* 
+  Note: The styles for this gradient grid background is heavily inspired by the creator of this amazing site (https://dub.sh) – all credits go to them! 
+*/
+
+.main {
+  width: 100vw;
+  min-height: 100vh;
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  padding: 120px 24px 160px 24px;
+  pointer-events: none;
+}
+
+.main:before {
+  background: radial-gradient(circle, rgba(2, 0, 36, 0) 0, #fafafa 100%);
+  position: absolute;
+  content: "";
+  z-index: 2;
+  width: 100%;
+  height: 100%;
+  top: 0;
+}
+
+.main:after {
+  content: "";
+  background-image: url("/src/assets/grid.svg");
+  z-index: 1;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  opacity: 0.4;
+  filter: invert(1);
+}
+
+.gradient {
+  height: fit-content;
+  z-index: 3;
+  width: 100%;
+  max-width: 640px;
+  background-image: radial-gradient(
+      at 27% 37%,
+      hsla(215, 98%, 61%, 1) 0px,
+      transparent 0%
+    ),
+    radial-gradient(at 97% 21%, hsla(125, 98%, 72%, 1) 0px, transparent 50%),
+    radial-gradient(at 52% 99%, hsla(354, 98%, 61%, 1) 0px, transparent 50%),
+    radial-gradient(at 10% 29%, hsla(256, 96%, 67%, 1) 0px, transparent 50%),
+    radial-gradient(at 97% 96%, hsla(38, 60%, 74%, 1) 0px, transparent 50%),
+    radial-gradient(at 33% 50%, hsla(222, 67%, 73%, 1) 0px, transparent 50%),
+    radial-gradient(at 79% 53%, hsla(343, 68%, 79%, 1) 0px, transparent 50%);
+  position: absolute;
+  content: "";
+  width: 100%;
+  height: 100%;
+  filter: blur(100px) saturate(150%);
+  top: 80px;
+  opacity: 0.15;
+}
+
+
+
+.app {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  max-width: 1280px; 
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 4rem; /* For sm:px-16 */
+  padding-right: 4rem; /* For sm:px-16 */
+  padding-left: 1.5rem; /* For px-6 */
+  padding-right: 1.5rem; /* For px-6 */
+}
+
+.logo {
+  position: absolute;
+  top: 20px; 
+  left: 20px; 
+  display: flex; /* Enables flex properties */
+  justify-content: flex-start; /* Aligns content to the left */
+  align-items: center; /* Centers content vertically */
+}
+
+.black_btn {
+  border-radius: 9999px; /* Full rounding */
+  position: absolute;
+  top: 20px;
+  border: 1px solid black;
+  background-color: black;
+  padding: 0.375rem 1.25rem; /* py-1.5 px-5 */
+  font-size: 0.875rem; /* Text size */
+  color: white;
+  transition: all 0.3s;
+  display: inline-block; /* Allows for margin and positioning */
+  margin-left: 150%; /* Pushes the button to the right */
+  margin-right: 0; 
+  right: 20px;
+}
+
+.black_btn:hover {
+  background-color: white;
+  color: black;
+}
+
+.head_text {
+  margin-top: 1.25rem; /* mt-5 */
+  font-size: 3rem; /* text-5xl */
+  font-weight: 800; /* font-extrabold */
+  line-height: 1.15;
+  color: black;
+  text-align: center;
+}
+
+.orange_gradient {
+  background: linear-gradient(to right, #ffbf00, #ff8c00, #ffd700); /* from-amber-500 via-orange-600 to-yellow-500 */
+  background-clip: text;
+  color: transparent;
+}
+
+.desc {
+  margin-top: 1.25rem; /* mt-5 */
+  font-size: 1.125rem; /* text-lg */
+  color: #4b5563; /* Gray-600 */
+  text-align: center;
+  max-width: 40rem; /* Adjust max-width according to your design */
+}
+
+.url_input {
+  display: block;
+  width: 100%;
+  border-radius: 0.375rem; 
+  border: 1px solid #e5e7eb; 
+  background-color: white;
+  padding: 0.625rem 0.75rem; 
+  font-size: 0.875rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  font-family: 'Satoshi', sans-serif; 
+  font-weight: 500; 
+  padding-left: 2.5rem;
+}
+
+.url_input:focus {
+  border-color: black;
+  outline: none;
+  box-shadow: none;
+}
+
+.submit_btn {
+  position: absolute;
+  right: 0;
+  margin: 0.375rem 0.375rem 0 0; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 2.5rem; 
+  border-radius: 0.375rem; 
+  border: 1px solid #e5e7eb; 
+  font-size: 0.875rem;
+  color: #9ca3af;
+}
+
+.submit_btn:hover {
+  border-color: #374151; /* Darker Gray */
+  color: #374151; /* Darker Gray */
+}
+
+.link_card {
+  padding: 0.75rem; /* p-3 */
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: row;
+  background-color: white;
+  border: 1px solid #e5e7eb; /* Gray-200 */
+  gap: 0.75rem; /* gap-3 */
+  border-radius: 0.5rem; /* Rounded-lg */
+  cursor: pointer;
+}
+
+.copy_btn {
+  width: 1.75rem; /* w-7 */
+  height: 1.75rem; /* h-7 */
+  border-radius: 9999px; /* Full circle */
+  background-color: rgba(255, 255, 255, 0.1); /* bg-white/10 */
+  box-shadow: inset 10px -50px 94px rgba(199, 199, 199, 0.2);
+  backdrop-filter: blur(10px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.blue_gradient {
+  font-weight: 800; /* Bold */
+  background: linear-gradient(to right, #2563eb, #00bcd4); /* from-blue-600 to-cyan-600 */
+  background-clip: text;
+  color: transparent;
+}
+
+.summary_box {
+  border-radius: 0.75rem; /* Rounded-xl */
+  border: 1px solid #e5e7eb; /* Gray-200 */
+  background-color: rgba(171, 69, 69, 0.2); /* bg-white/20 */
+  font-family: 'Times New Roman', Times, serif;
+  box-shadow: inset 10px -50px 94px rgba(199, 199, 199, 0.2);
+  backdrop-filter: blur(10px);
+  padding: 1rem; /* p-4 */
+  justify-content: center;
+  align-items: center;
+  font-style: italic;
+}
+
+@media screen and (max-width: 640px) {
+  .main {
+    padding: 0;
+  }
+}
